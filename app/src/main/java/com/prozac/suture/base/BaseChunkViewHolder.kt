@@ -7,6 +7,7 @@ import com.prozac.suture.R
 
 class BaseChunkViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-    public var chunk_title : TextView = itemView.findViewById(R.id.chunk_title)
+    var chunk_title : TextView = itemView.findViewById(R.id.chunk_title)
+    var rootView : View = itemView.findViewById(R.id.rootView)
 
 }
