@@ -2,6 +2,7 @@ package com.prozac.suture
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.os.SystemClock
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import com.prozac.suture.adapter.ChunkRecyclerViewAdapter
@@ -26,7 +27,9 @@ class MainActivity : AppCompatActivity() {
     private lateinit var chunks:ArrayList<BaseChunk>
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        setTheme(R.style.AppTheme)
         super.onCreate(savedInstanceState)
+        SystemClock.sleep(2000)
         setContentView(R.layout.activity_main)
         initView()
         initData()
