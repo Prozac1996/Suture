@@ -3,7 +3,6 @@ package com.prozac.suture;
 import android.app.Activity;
 import android.os.Bundle;
 import com.prozac.suture.retrofit.GetRequest_Interface;
-import com.prozac.suture.retrofit.Translation;
 import com.prozac.suture.retrofit.Translation1;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -14,7 +13,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class JavaMainActivity extends Activity {
 
     @Override
-    protected void onCreate( Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         request();

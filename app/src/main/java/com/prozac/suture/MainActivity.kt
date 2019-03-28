@@ -5,17 +5,13 @@ import android.os.Build
 import android.os.Bundle
 import android.os.SystemClock
 import android.support.v7.app.AppCompatActivity
+import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.StaggeredGridLayoutManager
 import com.prozac.suture.adapter.ChunkRecyclerViewAdapter
 import com.prozac.suture.base.BaseChunk
+import com.prozac.suture.base.BaseChunkData
 import com.prozac.suture.divider.LineDividerItemDecoration
-import com.prozac.suture.retrofit.GetRequest_Interface
-import com.prozac.suture.retrofit.Translation
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 
 class MainActivity : AppCompatActivity() {
     /**
@@ -37,7 +33,7 @@ class MainActivity : AppCompatActivity() {
     /**
      * 块数组
      */
-    private lateinit var chunks:ArrayList<BaseChunk>
+    private lateinit var chunks:ArrayList<BaseChunk<BaseChunkData>>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         setTheme(R.style.AppTheme)
@@ -59,10 +55,10 @@ class MainActivity : AppCompatActivity() {
      * 初始化数据
      */
     private fun initData(){
+        /**
+         * 块数组
+         */
         chunks = ArrayList()
-        for(i in 1..99){
-            chunks.add(BaseChunk("MyChunk","我是Chunk $i"))
-        }
     }
     /**
      * 绑定数据
@@ -70,7 +66,8 @@ class MainActivity : AppCompatActivity() {
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     private fun bindData(){
         adapter = ChunkRecyclerViewAdapter(this,chunks)
-        layoutManager = StaggeredGridLayoutManager(4,StaggeredGridLayoutManager.VERTICAL);
+//        layoutManager = StaggeredGridLayoutManager(4,StaggeredGridLayoutManager.VERTICAL);
+        layoutManager = LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false)
         lineDecoration = LineDividerItemDecoration(this,LineDividerItemDecoration.ALL)
 //        if(Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP) {
 //            var myDrawable: Drawable? = this.getDrawable(R.drawable.no_more_tip)
